@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { updateStatus } from "../../store/actions/statusActions";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 class UpdateStatus extends Component {
   state = {
@@ -54,9 +55,12 @@ class UpdateStatus extends Component {
     e.preventDefault();
     // console.log(this.state);
     this.props.updateStatus(this.state);
+    this.props.history.push("/");
   };
 
   render() {
+    const { auth } = this.props;
+    if (!auth.uid) return <Redirect to="/signin" />;
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
@@ -154,10 +158,15 @@ class UpdateStatus extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth,
+  };
+};
 const mapDispatchToProps = (dispatch) => {
   return {
     updateStatus: (status) => dispatch(updateStatus(status)),
   };
 };
 
-export default connect(null, mapDispatchToProps)(UpdateStatus);
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateStatus);
