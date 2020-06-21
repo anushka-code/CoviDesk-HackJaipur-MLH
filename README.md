@@ -1,4 +1,4 @@
-# Covid-Hackathon-App
+# CoviDesk HackJaipur MLH  
 An application that will allow patients to submit their symptoms and get a high-quality medical risk assessment designed with experienced doctors, from the safety of their own homes, without creating additional pressure for our already stretched healthcare workers and crowded hospitals .
 Our idea aims to provide at-home Covid-19 screenings via flutter application. We have use computer vision and a symptom scoring system to assess Covid-19 risk and escalate critical patients to doctors virtually .
 By uploading a 20-second video of their finger (to check for vital signs like Heart rate and Oxygen rate) answering some questions about their symptoms and medical condition, patients will be scored using a screening process that will be designed with doctors for the identification of Covid-19.
