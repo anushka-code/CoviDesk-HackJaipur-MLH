@@ -1,18 +1,18 @@
 import React from "react";
 
-const StatusSummary = () => {
+const StatusSummary = ({ status }) => {
   return (
     <tr>
-      <td>3/29/2020</td>
-      <td>12</td>
-      <td>379</td>
-      <td>5427</td>
-      <td>8</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>Yes</td>
-      <td>Yes</td>
-      <td>Yes</td>
+      <td>{status.date}</td>
+      <td>{status.covidCount}</td>
+      <td>{status.totalCount}</td>
+      <td>{status.testCount}</td>
+      <td>{status.ppeLevel}</td>
+      <td>{status.fullMedicalCare ? "Yes" : "No"}</td>
+      <td>{status.testingAvailable ? "Yes" : "No"}</td>
+      <td>{status.acceptCovid ? "Yes" : "No"}</td>
+      <td>{status.acceptNonCovid ? "Yes" : "No"}</td>
+      <td>{status.testCovidOnly ? "Yes" : "No"}</td>
     </tr>
   );
 };

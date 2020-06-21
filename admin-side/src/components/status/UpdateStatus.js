@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { updateStatus } from "../../store/actions/statusActions";
+import { connect } from "react-redux";
 
 class UpdateStatus extends Component {
   state = {
@@ -50,7 +52,8 @@ class UpdateStatus extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
+    this.props.updateStatus(this.state);
   };
 
   render() {
@@ -151,4 +154,10 @@ class UpdateStatus extends Component {
   }
 }
 
-export default UpdateStatus;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateStatus: (status) => dispatch(updateStatus(status)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(UpdateStatus);
