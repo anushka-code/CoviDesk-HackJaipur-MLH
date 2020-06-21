@@ -6,7 +6,7 @@ Users diagnosied with Covid-19 will then be redirected to top 3 most **optimal n
 Based on the symptoms assessed by the app, we haved trained a **supervised learning model to predict the probability of a patient having covid 19** - i.e. risk factor of covid 19. The model has been trained on certain standard symptoms issued by the WHO. For additional precision, we have clustered these symptoms into 2 groups. One which has a high risk factor and one which has a low risk factor. Thus, a labelled dataset is created on which the classifier is trained. By predicting the probability of the person contracting covid 19 through the symptoms, we can get the risk factor  
   
   
-**Technolgies used : **    
+**Technolgies used :**    
 Flutter - App Development - User-side  
 Javascript ,HTML , CSS - Web App  - Admin-side  
 Azure - Web App to calculate Heart Rate and Oxygen Level of user : Python , Flask for Api   
