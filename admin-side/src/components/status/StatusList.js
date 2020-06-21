@@ -1,7 +1,7 @@
 import React from "react";
 import StatusSummary from "./StatusSummary";
 
-const StatusList = () => {
+const StatusList = ({ statuses }) => {
   return (
     <div className="status-list section">
       <table className="highlight centered responsive-table">
@@ -21,10 +21,10 @@ const StatusList = () => {
         </thead>
 
         <tbody>
-          <StatusSummary />
-          <StatusSummary />
-          <StatusSummary />
-          <StatusSummary />
+          {statuses &&
+            statuses.map((status) => {
+              return <StatusSummary status={status} key={status.id} />;
+            })}
         </tbody>
       </table>
     </div>
