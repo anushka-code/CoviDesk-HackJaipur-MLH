@@ -1,6 +1,7 @@
 import 'package:export_video_frame/export_video_frame.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:covidapp/Vital_Signs_Calculator/heart_rate.dart';
 
 class VideoProcessor extends StatefulWidget {
   final List<Image> images = [];
@@ -20,19 +21,16 @@ class _VideoProcessorState extends State<VideoProcessor> {
       child : FlatButton(
         color: Colors.white,
         child: Text("Select" , style: TextStyle(color: Colors.black),),
-        onPressed: () { _getImages(); },
+        onPressed: () {
+          var file = _getVideo();
+          Result(file);
+        },
       ),
     );
   }
-  Future _getImages() async {
+  Future _getVideo() async {
     var file = await ImagePicker().getVideo(source: ImageSource.gallery);
-    var images = await ExportVideoFrame.exportImage(file.path,10,0);
-    var result = images.map((file) => Image.file(file)).toList();
-    print(result[0].runtimeType);
-    setState(() {
-      widget.images.addAll(result);
-      _isClean = true;
-    });
+    return file;
   }
 
 }
